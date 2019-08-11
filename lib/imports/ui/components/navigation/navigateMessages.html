@@ -1,0 +1,32 @@
+<template name="navigateMessages">
+  <li class="{{isActiveRoute 'messages'}}">
+    <a href="{{pathFor 'messages'}}" class="js-teb-navigate-messages-link">
+      {{#with unreadMessageCount}}
+        <span style="position: relative;">
+          <span class="chip red white-text" style="position: absolute;
+            transform: scale(0.6); left: -50px; top: 5px;">
+            {{this}}
+          </span>
+        </span>
+      {{/with}}
+      {{translate "navigation-messages"}}
+      <i class="material-icons left">email</i>
+    </a>
+  </li>
+</template>
+
+<template name="navigateMessagesCompact">
+  <a href="{{pathFor 'messages'}}" class="{{isActiveRoute 'messages'}} right">
+    {{#tebTooltip label=(translate "navigation-messages") position="left"}}
+      <i class="material-icons left">email</i>
+    {{/tebTooltip}}
+    {{#with unreadMessageCount}}
+      <span style="position: relative;">
+        <span class="chip red white-text" style="position: absolute;
+          transform: scale(0.6); left: -35px; top: 25px;">
+          {{this}}
+        </span>
+      </span>
+    {{/with}}
+  </a>
+</template>

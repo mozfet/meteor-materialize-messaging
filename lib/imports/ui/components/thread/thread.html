@@ -1,0 +1,34 @@
+<template name="tebViewMessageThread">
+  <div class="container">
+    {{#if Template.subscriptionsReady}}
+      {{#if thread}}
+        <div class="row">
+          {{>DynaText tag="h1" class="header" text=thread.name}}
+        </div>
+        <div class="row form">
+          <div class="input-field col s10">
+            <input placeholder="Type message here" id="teb-message-input"
+                type="text">
+            <label class="active" for="teb-message-input">Message</label>
+          </div>
+          <div class="col s2">
+            <div class="btn js-teb-messaging-send">
+              Send
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <ul>
+            {{#each message in messages}}
+              {{> tebViewThreadMessage message=message}}
+            {{/each}}
+          </ul>
+        </div>
+      {{else}}
+        {{>DynaText tag="h1" class="header"
+            text=(translate "message-thread-missing-title")}}
+        {{>DynaText text=(translate "message-thread-missing-body")}}        
+      {{/if}}
+    {{/if}}
+  </div>
+</template>

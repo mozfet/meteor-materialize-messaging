@@ -1,0 +1,57 @@
+<template name="tebViewMessaging">
+  <div class="container">
+    <div class="row">
+      {{>DynaText tag="h1" class="header" text=(translate "messaging-view-title")}}
+      {{>DynaText text=(translate "messaging-view-body")}}
+      <a href="{{pathFor '/contact'}}" class="btn">
+        {{translate "messaging-view-contact-button"}}
+      </a>
+    </div>
+    {{#if instance.state.threadSubscription.ready}}
+      <div class="row">
+        <ul class="collection">
+          {{#each thread in threads}}
+            <li class="collection-item">
+              <a href="{{pathFor '/messages/:threadId' threadId=thread._id}}">
+
+                <!-- subject -->
+                {{> tooltippedIconText
+                    icon="mail_outline"
+                    iconClass="blue-sapphire-text"
+                    class="blue-sapphire-text"
+                    tooltipText=(translate "messaging_subject_tooltip")
+                    text=thread.name
+                    tooltipPosition="top"}}
+
+                <!-- thread members -->
+                {{#with userLabels thread._id}}
+                  {{#if this.length}}
+                    <br>
+                    {{> tooltippedIconText
+                        icon="group"
+                        iconClass="blue-sapphire-text"
+                        class="blue-sapphire-text"
+                        tooltipText=(translate "messaging_thread_users")
+                        text=this
+                        tooltipPosition="top"}}
+                  {{/if}}
+                {{/with}}
+
+                <!-- unread count -->
+                {{#with unreadCount thread._id}}
+                  {{#unless (equals this 0)}}
+                    <div class="secondary-content chip red white-text">
+                      {{this}}
+                    </div>
+                  {{/unless}}
+                {{/with}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{else}}
+      {{> spinner}}
+    {{/if}}
+  </div>
+</template>
