@@ -24,3 +24,6 @@ zodiase:material-design-icons-fonts
 meteortesting:mocha               # A package for writing and running your meteor app and package tests with mocha
 johanbrook:publication-collector  # Test a Meteor publication by collecting its output
 mozfet:materialize-messaging
+mozfet:meteor-logs
+msavin:sjobs
+msavin:sjobs-ui-blaze
