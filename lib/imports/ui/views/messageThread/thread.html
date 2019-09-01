@@ -1,4 +1,4 @@
-<template name="MessageThread">
+<template name="Thread">
   <div class="container">
     {{#if Template.subscriptionsReady}}
       {{#if thread}}
@@ -20,7 +20,7 @@
         <div class="row">
           <ul>
             {{#each message in messages}}
-              {{> tebViewThreadMessage message=message}}
+              {{>ThreadMessage message=message}}
             {{/each}}
           </ul>
         </div>

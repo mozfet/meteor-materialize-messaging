@@ -1,6 +1,6 @@
 <template name="messagingNavbarItem">
   <li class="{{isActiveRoute 'messages'}}">
-    <a href="{{pathFor 'messages'}}" class="js-teb-navigate-messages-link">
+    <a href="/messages" class="js-teb-navigate-messages-link">
       {{#with unreadMessageCount}}
         <span style="position: relative;">
           <span class="chip red white-text" style="position: absolute;
@@ -16,7 +16,7 @@
 </template>
 
 <template name="messagingNavbarItemCompact">
-  <a href="{{pathFor 'messages'}}" class="{{isActiveRoute 'messages'}} right">
+  <a href="/messages" class="{{isActiveRoute 'messages'}} right">
     {{#tebTooltip label=(translate "navigation-messages") position="left"}}
       <i class="material-icons left">email</i>
     {{/tebTooltip}}

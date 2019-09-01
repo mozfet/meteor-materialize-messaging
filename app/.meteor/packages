@@ -27,3 +27,5 @@ mozfet:materialize-messaging
 mozfet:meteor-logs
 msavin:sjobs
 msavin:sjobs-ui-blaze
+accounts-password
+accounts-ui

@@ -1,0 +1,19 @@
+<template name="ThreadMessage">
+  <li class="card">
+    <div class="" style="padding: 2em;">
+      <div class="">
+        {{message.senderName}}
+      </div>
+      <div class="flow-text">
+        {{#if message.bodyHtml}}
+          {{{message.bodyHtml}}}
+        {{else}}
+          {{message.body}}
+        {{/if}}
+      </div>
+      <div class="right-align">
+        {{dateTime message.createdAt}}
+      </div>
+    </div>
+  </li>
+</template>

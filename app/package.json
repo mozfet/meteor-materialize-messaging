@@ -2,11 +2,12 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "start": "meteor run",
+    "start": "meteor --settings settings.json",
     "test": "meteor test --once --driver-package meteortesting:mocha"
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "bcrypt": "^3.0.6",
     "materialize-css": "^1.0.0",
     "meteor-node-stubs": "^0.4.1",
     "simpl-schema": "^1.5.5"

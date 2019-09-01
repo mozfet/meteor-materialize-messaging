@@ -1,8 +1,43 @@
-<template name="App_home">
+<template name="Home">
   <div class="row">
     <div class="col s12">
-      <h1>Home</h1>
-      <p>Welcome to the Meteor Materialize Messaging demo application.</p>
+      <h4>Meteor Material Messaging</h4>
+      <p class="flow-text">Quick, Easy and Stylish real time text messaging
+          between users. Includes navigation buttons, JS API, email reminders
+          for unread messages, sending messages based on username or userId.</p>
+      {{#if currentUser}}
+        <div class="row">
+          {{#with username=currentUser.username}}
+            <div class="col s12 center-align flow-text" style="padding: 25px;">
+              You are logged in as user {{> loginButtons}}.
+            </div>
+            {{#if (isEqual username "test1")}}
+              <div class="col s6">
+                <a href="" class="btn js-message-send" style="min-width:100%;">
+                  Contact test2
+                </a>
+              </div>
+            {{/if}}
+            {{#if (isEqual username "test2")}}
+              <div class="col s6">
+                <a href="" class="btn js-message-send" style="min-width:100%;">
+                  Contact test1
+                </a>
+              </div>
+            {{/if}}
+            <div class="col s6">
+              <a href="" class="btn" style="min-width:100%;">
+                Contact customer service
+              </a>
+            </div>
+          {{/with}}
+        </div>
+      {{else}}
+        <p class="flow-text">You need to signin in order to send messages.
+            Use email test1@test.com,
+            and test2@test2.com, both with password ilovemeteor.</p>
+        <p class="flow-text">{{> loginButtons}}</p>
+      {{/if}}
     </div>
   </div>
 </template>

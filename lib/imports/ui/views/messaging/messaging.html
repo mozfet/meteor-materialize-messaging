@@ -1,13 +1,13 @@
-<template name="tebViewMessaging">
+<template name="MessagingView">
   <div class="container">
     <div class="row">
       {{>DynaText tag="h1" class="header" text=(translate "messaging-view-title")}}
       {{>DynaText text=(translate "messaging-view-body")}}
-      <a href="{{pathFor '/contact'}}" class="btn">
-        {{translate "messaging-view-contact-button"}}
-      </a>
+      <!-- <a href="{{pathFor '/contact'}}" class="btn">
+        {{>translate key="messaging-view-contact-button"}}
+      </a> -->
     </div>
-    {{#if instance.state.threadSubscription.ready}}
+    <!-- {{#if Template.subscriptionsReady}} -->
       <div class="row">
         <ul class="collection">
           {{#each thread in threads}}
@@ -19,7 +19,7 @@
                     icon="mail_outline"
                     iconClass="blue-sapphire-text"
                     class="blue-sapphire-text"
-                    tooltipText=(translate "messaging_subject_tooltip")
+                    tooltipText=(translate "messaging-subject-tooltip")
                     text=thread.name
                     tooltipPosition="top"}}
 
@@ -31,7 +31,7 @@
                         icon="group"
                         iconClass="blue-sapphire-text"
                         class="blue-sapphire-text"
-                        tooltipText=(translate "messaging_thread_users")
+                        tooltipText=(translate "messaging-thread-users")
                         text=this
                         tooltipPosition="top"}}
                   {{/if}}
@@ -50,8 +50,8 @@
           {{/each}}
         </ul>
       </div>
-    {{else}}
+    <!-- {{else}}
       {{> spinner}}
-    {{/if}}
+    {{/if}} -->
   </div>
 </template>
